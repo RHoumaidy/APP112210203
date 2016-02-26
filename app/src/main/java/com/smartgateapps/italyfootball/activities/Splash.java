@@ -14,6 +14,7 @@ import android.view.View;
 import com.greenfrvr.rubberloader.RubberLoaderView;
 import com.smartgateapps.italyfootball.R;
 import com.smartgateapps.italyfootball.italy.MyApplication;
+import com.smartgateapps.italyfootball.services.GetAllDawriNewsReciever;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -126,7 +127,7 @@ public class Splash extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Intent intentActivationUpateNewsService = new Intent(MyApplication.ACTION_ACTIVATION);
+        Intent intentActivationUpateNewsService = new Intent(MyApplication.APP_CTX, GetAllDawriNewsReciever.class);
         PendingIntent pendingIntent =
                 PendingIntent.getBroadcast(MyApplication.APP_CTX, 77, intentActivationUpateNewsService, PendingIntent.FLAG_NO_CREATE);
         if (pendingIntent != null)
